@@ -5,11 +5,15 @@ import numpy as np
 import pyzbar.pyzbar as pyzbar
 
 
-
 # while문 안에 작성하고, 바깥에 break할 키를 설정해준다.
 # + cv2.destroyAllWindows()
-def get_box_size_and_barcode(cap, max_val = 0, real_w_b=2.8, cam_height=32.3):
-    
+def get_box_size_and_barcode(cap, lwh, valid=0, max_val = 0, B=(1, 1, 1, 1), real_w_b=2.8, cam_height=32.3):
+    x_b = B[0]
+    y_b = B[1]
+    w_b = B[2]
+    h_b = B[3]
+    # 임시로 my_code 변수를 정의
+    my_code = None
     # 변수
     # 바코드 길이(cm)
     real_w_b=real_w_b
@@ -32,6 +36,11 @@ def get_box_size_and_barcode(cap, max_val = 0, real_w_b=2.8, cam_height=32.3):
             pass
         
     # barcode and height ###################
+    
+    
+    # 바코드가 인식되면 time을 0으로 주어 trigger 신호를 보낸다.
+    if not(my_code == None):
+        valid = 1
         
     l_h = cv2.getTrackbarPos("LH", "Tracking")
     l_s = cv2.getTrackbarPos("LS", "Tracking")
@@ -78,7 +87,8 @@ def get_box_size_and_barcode(cap, max_val = 0, real_w_b=2.8, cam_height=32.3):
     
     # 바코드가 인식된 후 2초 기다린다.
     # 그 후 바코드 번호, 박스 lwh를 반환한다.
-    return (frame, mask, max_val)
+    # time, my_code 처리
+    return (frame, mask, max_val, B, [real_w, real_h, height], valid, my_code)
 
 def plot_trackbar():
     
