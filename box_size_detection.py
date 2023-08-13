@@ -1,5 +1,3 @@
-import os
-import matplotlib.pyplot as plt
 import cv2
 import numpy as np
 import pyzbar.pyzbar as pyzbar
@@ -7,13 +5,18 @@ import pyzbar.pyzbar as pyzbar
 
 # while문 안에 작성하고, 바깥에 break할 키를 설정해준다.
 # + cv2.destroyAllWindows()
-def get_box_size_and_barcode(cap, lwh, valid=0, max_val = 0, B=(1, 1, 1, 1), real_w_b=2.8, cam_height=32.3):
+def get_box_size_and_barcode(cap, lwh, real_wb=(1, 1), valid=0, max_val = 0, B=(1, 1, 1, 1), real_w_b=2.8, cam_height=32.3):
+    
+    # local variable 처리
     x_b = B[0]
     y_b = B[1]
     w_b = B[2]
     h_b = B[3]
-    # 임시로 my_code 변수를 정의
+    real_w = real_wb[0]
+    real_h = real_wb[1]
     my_code = None
+    biggest_contour=None
+
     # 변수
     # 바코드 길이(cm)
     real_w_b=real_w_b
@@ -72,11 +75,19 @@ def get_box_size_and_barcode(cap, lwh, valid=0, max_val = 0, B=(1, 1, 1, 1), rea
 
     if max_val < round(((w_b/real_w_b)/cam_height)*6.7, 2):
         max_val = round(((w_b/real_w_b)/cam_height)*6.7, 2)
-
+        last_real_w_b = real_w_b
+        real_w = round((w/w_b)*(last_real_w_b), 2)
+        real_h = round((h/w_b)*(last_real_w_b), 2)
         
-    height = max_val     
-    real_w = round((w/w_b)*(real_w_b), 2)
-    real_h = round((h/w_b)*(real_w_b), 2)
+        
+    try:
+        real_w = round((w/w_b)*(last_real_w_b), 2)
+        real_h = round((h/w_b)*(last_real_w_b), 2)
+    except:
+        pass
+        
+    height = max_val
+            
     
     if real_w < 1 or real_h < 1:
         max_val = 0
@@ -85,10 +96,7 @@ def get_box_size_and_barcode(cap, lwh, valid=0, max_val = 0, B=(1, 1, 1, 1), rea
     # 원래 y-20
     frame=cv2.putText(frame, f'width:{real_w}, length:{real_h}, height:{height}', (x , y+30), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 0), 1)
     
-    # 바코드가 인식된 후 2초 기다린다.
-    # 그 후 바코드 번호, 박스 lwh를 반환한다.
-    # time, my_code 처리
-    return (frame, mask, max_val, B, [real_w, real_h, height], valid, my_code)
+    return (frame, mask, max_val, B, [real_w, real_h, height], valid, my_code, (real_w, real_h))
 
 def plot_trackbar():
     
