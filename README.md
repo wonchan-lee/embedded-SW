@@ -4,6 +4,7 @@
 
 # H/W Used
 * Jetson TX2
+    * Jetpack 3.3.1 
 * OpenCR
     * OpenManipulator 
 * Arduino Uno
