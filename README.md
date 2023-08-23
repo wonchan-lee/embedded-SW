@@ -1,11 +1,13 @@
-# embedded-SW
- 임베디드 SW 경진대회용 코드
+# 2023 임베디드 SW 경진대회
+* 팀명: Carisma
+* 주제: 비행기 수하물 적재 시스템
 
-# 해야할 일
-1. 길이 정보 맞추고, 함수 파라미터 정하기
-2. 컨베이어 돌리는 코드 작성 
-3. 로봇팔을 이용해 물건을 적재한다.
-4. 도착 후에 해당 바코드 번호의 고객에게 이메일을 전송한다.
+# 사용한 HW
+* Jetson TX2
+* OpenCR
+* Arduino Uno
+ * <a href="https://ideaplay6173.cafe24.com/product/%EC%BB%A8%EB%B2%A0%EC%9D%B4%EC%96%B4%EB%B2%A8%ED%8A%B8-%ED%8A%B9%EB%8C%80%ED%98%95%EC%95%84%EB%91%90%EC%9D%B4%EB%85%B8%EC%82%AC%EC%9A%A9-100-200mm/370/"> 컨베이어 벨트 키트 </a>
+
 
 # Technologies Used
 - OpenCV
