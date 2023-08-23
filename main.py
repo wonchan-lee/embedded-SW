@@ -4,12 +4,15 @@ Created on Wed Aug  9 13:32:31 2023
 
 @author: wonchan
 """
-
-from box_size_detection import get_box_size_and_barcode, plot_trackbar
-from struck_code_each_weight_color_added import draw_box_function 
+import sys
 import cv2
 import serial
 import time
+sys.path.append('./python_code')
+
+from box_size_detection import get_box_size_and_barcode, plot_trackbar
+from struck_code_each_weight_color_added import draw_box_function 
+
 
 # 카메라 세팅
 cap = cv2.VideoCapture(1)
