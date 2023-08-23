@@ -9,7 +9,7 @@
 * Arduino Uno
     * <a href="https://ideaplay6173.cafe24.com/product/%EC%BB%A8%EB%B2%A0%EC%9D%B4%EC%96%B4%EB%B2%A8%ED%8A%B8-%ED%8A%B9%EB%8C%80%ED%98%95%EC%95%84%EB%91%90%EC%9D%B4%EB%85%B8%EC%82%AC%EC%9A%A9-100-200mm/370/"> 컨베이어 벨트 키트 </a>
 
-# Technologies Used (PC 작동)
+# Technologies Used
 - OpenCV == 4.8.0.74
 - matplotlib == 3.7.1
 - numpy == 1.24.3
@@ -22,4 +22,7 @@
 git clone https://github.com/wonchan-lee/embedded-SW.git
 ```
 2. Technologies Used에 사용된 library를 다운로드 합니다.
+```console
+pip install opencv-python matplotlib numpy pyzbar pyserial
+```
 3. main 함수를 실행합니다.
