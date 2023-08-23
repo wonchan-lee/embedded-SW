@@ -12,3 +12,4 @@
 - matplotlib
 - numpy
 - pyzbar
+- serial
