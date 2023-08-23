@@ -27,7 +27,9 @@ git clone https://github.com/wonchan-lee/embedded-SW.git
 pip install opencv-python matplotlib numpy pyzbar pyserial
 ```
 3. Arduino Uno에 arduino_uno_code 폴더 속 코드를 업로드 합니다.
+    * Arduino Uno와 컨베이어 벨트를 서로 연결합니다.
 4. OpenCR에 open_cr_code 폴더 속 코드를 업로드 합니다. 
+    * OpenCR과 OpenManipulator를 연결합니다.
 5. host PC에 Arduino와 OpenCR을 Serial로 연결합니다.
 6. main.py 속 Arduino Uno와 OpenCR과 연결하는 Serial 객체들의 Port 번호를 host PC에 연결된 포트로 변경합니다.
 7. main.py를 실행합니다.
