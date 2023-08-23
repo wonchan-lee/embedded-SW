@@ -8,6 +8,7 @@ Created on Wed Aug  9 13:32:31 2023
 from box_size_detection import get_box_size_and_barcode, plot_trackbar
 from struck_code_each_weight_color_added import draw_box_function 
 import cv2
+import serial
 import time
 
 # 카메라 세팅
@@ -27,6 +28,12 @@ code_list = []
 
 # 핵심 변수
 customer_num = 3 # customer 숫자를 설정해서 이 숫자를 넘어가면, 프로그램 종료
+
+# conveyor_belt serial 객체
+# conveyor_belt = serial.Serial(
+#     port='COM7',
+#     baudrate=9600,
+# )
 
 
 # Box 객체 설정
@@ -95,6 +102,7 @@ while True:
                 # print(lwh, code)
                 
                 # 컨베이어 벨트를 작동시켜 다음 박스를 움직이도록 하는 코드
+                #conveyor_belt.write('A'.encode())
                 
         except:
             valid = 0

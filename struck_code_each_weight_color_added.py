@@ -20,16 +20,43 @@ def draw_box_function(class_num=1, customer_list = None, ):
     TRUCK_L = 30    #x
     TRUCK_W = 30    # y
     TRUCK_H = 30    # z
-            
-    TOP_CLASS = 1
-    #Econom를 split한 수
-    Economy_split_num = 3
-    test = [3, 10, 10, 10, 5]
+    
+
+    
+    # class에 따른 소비자 분류
+    customer_first = []
+    customer_Business = []
+    customer_Economy = []
+    
+    for customer in customer_list:
+        if customer.t_class == "First":
+            customer_first.append(customer)
+        elif customer.t_class == "Business":
+            customer_Business.append(customer)
+        else:
+            customer_Economy.append(customer)
+    
+    # test 버전
+    #LWH = [[[int(customer.lwh[0]), int(customer.lwh[1]), int(customer.lwh[2])] for customer in customer_list]]
+    
+    # real 버전
+    LWH = [ [[int(customer.lwh[0]), int(customer.lwh[1]), int(customer.lwh[2])] for customer in customer_first],\
+            [[int(customer.lwh[0]), int(customer.lwh[1]), int(customer.lwh[2])] for customer in customer_Business], \
+            [[int(customer.lwh[0]), int(customer.lwh[1]), int(customer.lwh[2])] for customer in customer_Economy] ]
+   
+    # Class 숫자
+    TOP_CLASS = 3
+    
+    # Econom를 split한 수
+    Economy_split_num = 1
+    # 승객 수
+    test = [len(customer_first), len(customer_Business), len(customer_Economy)]
     
     # weight, lwh setting for test, 추후에 수정
-    WEIGHT = [[customer.weight for customer in customer_list ]]
-    LWH = [[[int(customer.lwh[0]), int(customer.lwh[1]), int(customer.lwh[2])] for customer in customer_list]]
-    
+    WEIGHT = [[customer.weight for customer in customer_first], \
+              [customer.weight for customer in customer_Business], \
+              [customer.weight for customer in customer_Economy]]
+        
     # sort by weight
     W_LWH = [[[WEIGHT[i][j], LWH[i][j]] for j in range(test[i])] for i in range(TOP_CLASS)]
     W_LWH_temp = W_LWH
@@ -174,7 +201,9 @@ def draw_box_function(class_num=1, customer_list = None, ):
     
     TEST_LIST = []
     total_iter_num = 0
+    
     for TEST in range(TOP_CLASS):
+        
         fig = plt.figure()
         ax = fig.add_subplot(projection='3d')
         ax.set_aspect('auto')
