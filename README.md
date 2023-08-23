@@ -31,4 +31,4 @@ pip install opencv-python matplotlib numpy pyzbar pyserial
 5. host PC에 Arduino와 OpenCR을 Serial로 연결합니다.
 6. main.py 속 Arduino Uno와 OpenCR과 연결하는 Serial 객체들의 Port 번호를 host PC에 연결된 포트로 변경합니다.
 7. main.py를 실행합니다.
-   * cv.videoCapture(0)으로 변경하면 우선순위가 높은 카메라를 사용할 수 있습니다.
+   * cv2.VideoCapture(0)으로 변경하면 우선순위가 높은 카메라를 사용할 수 있습니다.
