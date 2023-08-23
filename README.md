@@ -17,6 +17,9 @@
 - pyserial == 3.5
 
 # How to use
+1. code를 복사합니다.
 ```console
 git clone https://github.com/wonchan-lee/embedded-SW.git
 ```
+2. Technologies Used에 사용된 library를 다운로드 합니다.
+3. main 함수를 실행합니다.
