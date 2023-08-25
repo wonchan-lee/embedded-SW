@@ -17,7 +17,7 @@
 - pyzbar == 0.1.9
 - pyserial == 3.5
 
-# brief configure
+# Brief H/W Connection
 <img src="https://github.com/wonchan-lee/embedded-SW/blob/main/flow_chart.png"/>
 
 # How to use
