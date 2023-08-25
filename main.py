@@ -30,7 +30,7 @@ customer_list = []
 code_list = []
 
 # 핵심 변수
-customer_num = 4 # customer 숫자를 설정해서 이 숫자를 넘어가면, 프로그램 종료
+customer_num = 5 # customer 숫자를 설정해서 이 숫자를 넘어가면, 프로그램 종료
 
 # conveyor_belt serial 객체
 # conveyor_belt = serial.Serial(

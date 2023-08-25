@@ -151,15 +151,15 @@ def draw_box_function(class_num=1, customer_list = None, ):
     #LWH = [[[int(customer.lwh[0]), int(customer.lwh[1]), int(customer.lwh[2])] for customer in customer_list]]
     
     # real 버전
-    LWH = [ [[int(customer.lwh[0]), int(customer.lwh[1]), int(customer.lwh[2])] for customer in customer_Economy],\
+    LWH = [ [[int(customer.lwh[0]), int(customer.lwh[1]), int(customer.lwh[2])] for customer in customer_first],\
             [[int(customer.lwh[0]), int(customer.lwh[1]), int(customer.lwh[2])] for customer in customer_Business], \
-            [[int(customer.lwh[0]), int(customer.lwh[1]), int(customer.lwh[2])] for customer in customer_first] ]
+            [[int(customer.lwh[0]), int(customer.lwh[1]), int(customer.lwh[2])] for customer in customer_Economy] ]
     
     # CLASS, BOX NUM
     TOP_CLASS = 3
     #Econom를 split한 수
     Economy_split_num = 1
-    test = [len(customer_Economy), len(customer_Business), len(customer_first)]
+    test = [len(customer_first), len(customer_Business), len(customer_Economy)]
     
     # 색깔 부여
     TOP_COLORS=[]
@@ -169,9 +169,9 @@ def draw_box_function(class_num=1, customer_list = None, ):
     TOP_COLORS.append('#0000ff') # First 색깔
     
     # weight, lwh setting for test, 추후에 수정
-    WEIGHT = [[customer.weight for customer in customer_Economy], \
+    WEIGHT = [[customer.weight for customer in customer_first], \
               [customer.weight for customer in customer_Business], \
-              [customer.weight for customer in customer_first]]
+              [customer.weight for customer in customer_Economy]]
     
     # sort by weight
     W_LWH = [[[WEIGHT[i][j], LWH[i][j]] for j in range(test[i])] for i in range(TOP_CLASS)]
@@ -250,6 +250,7 @@ def draw_box_function(class_num=1, customer_list = None, ):
                 if i == 0 and j == 0:
                     BOX[i][j].draw_Box(ax)
                     continue
+                
                 start+=1
                 # BOX 생성
                 test_truck = TRUCK_H*TRUCK_L*TRUCK_W
@@ -258,19 +259,19 @@ def draw_box_function(class_num=1, customer_list = None, ):
                     for tmp in range(start):
         
                             grids1 = BOX_tmp[tmp].occupied_space()
-                            grids2 = [[TEST_GRID[i_count][0], TEST_GRID[i_count][0]+LWH[i][j][0]], [TEST_GRID[i_count][1], TEST_GRID[i_count][1]+LWH[i][j][0]], [TEST_GRID[i_count][2], TEST_GRID[i_count][2]+LWH[i][j][0]]]
+                            grids2 = [[TEST_GRID[i_count][0], TEST_GRID[i_count][0]+W_LWH[TEST][j][1][0]], [TEST_GRID[i_count][1], TEST_GRID[i_count][1]+W_LWH[TEST][j][1][1]], [TEST_GRID[i_count][2], TEST_GRID[i_count][2]+W_LWH[TEST][j][1][2]]]
         
                             iter_num +=1
                             total_iter_num += 1
                             #print(iter_num)
-                            if not(invasion_test(grids1, grids2)) and check_in_truck(TEST_GRID[i_count], LWH[i][j]):
+                            if not(invasion_test(grids1, grids2)) and check_in_truck(TEST_GRID[i_count], LWH[TEST][j]):
                                 valid_box += 1
         
                     if valid_box == start : 
                         S_POSITION = TEST_GRID[i_count]
-                        BOX[i][j] = Box(S_POSITION, LWH[i][j], COLORS[TEST][j], WEIGHT[i][j])
+                        BOX[i][j] = Box(S_POSITION, W_LWH[TEST][j][1], COLORS[TEST][j], W_LWH[TEST][j][0])
                         #print(COLORS[start])
-                        BOX_tmp[start] = Box(S_POSITION, LWH[i][j], COLORS[TEST][j], WEIGHT[i][j])
+                        BOX_tmp[start] = Box(S_POSITION, W_LWH[TEST][j][1], COLORS[TEST][j], W_LWH[TEST][j][0])
                         BOX[i][j].draw_Box(ax)
                         valid_box = 0
                         break

@@ -81,12 +81,12 @@ def get_box_size_and_barcode(cap, lwh, real_wb=(1, 1), valid=0, max_val = 0, B=(
         
         
     try:
-        real_w = 3# round((w/w_b)*(last_real_w_b), 2)
-        real_h = 3#round((h/w_b)*(last_real_w_b), 2)
+        real_w = round((w/w_b)*(last_real_w_b), 2)
+        real_h = round((h/w_b)*(last_real_w_b), 2)
     except:
         pass
         
-    height = 3# max_val
+    height = max_val
             
     
     if real_w < 1 or real_h < 1:
