@@ -30,11 +30,11 @@ customer_list = []
 code_list = []
 
 # 핵심 변수
-customer_num = 3 # customer 숫자를 설정해서 이 숫자를 넘어가면, 프로그램 종료
+customer_num = 4 # customer 숫자를 설정해서 이 숫자를 넘어가면, 프로그램 종료
 
 # conveyor_belt serial 객체
 # conveyor_belt = serial.Serial(
-#     port='COM7',
+#     port='COM9',
 #     baudrate=9600,
 # )
 
@@ -105,7 +105,7 @@ while True:
                 # print(lwh, code)
                 
                 # 컨베이어 벨트를 작동시켜 다음 박스를 움직이도록 하는 코드
-                #conveyor_belt.write('A'.encode())
+                # conveyor_belt.write('A'.encode())
                 
         except:
             valid = 0
@@ -121,7 +121,7 @@ while True:
         print(customer_list)
         
         # box를 그리는 로직 실행
-        draw_box_function(1, customer_list)
+        draw_box_function(3, customer_list)
         
         break
     

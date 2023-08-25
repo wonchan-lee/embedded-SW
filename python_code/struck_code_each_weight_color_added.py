@@ -14,53 +14,12 @@ import random
 
 
 def draw_box_function(class_num=1, customer_list = None, ):   
+    ############################################################## for draw test
     
-    # 설정 변수
     ## Size of truck(1cm unit)
-    TRUCK_L = 30    #x
-    TRUCK_W = 30    # y
-    TRUCK_H = 30    # z
-    
-
-    
-    # class에 따른 소비자 분류
-    customer_first = []
-    customer_Business = []
-    customer_Economy = []
-    
-    for customer in customer_list:
-        if customer.t_class == "First":
-            customer_first.append(customer)
-        elif customer.t_class == "Business":
-            customer_Business.append(customer)
-        else:
-            customer_Economy.append(customer)
-    
-    # test 버전
-    #LWH = [[[int(customer.lwh[0]), int(customer.lwh[1]), int(customer.lwh[2])] for customer in customer_list]]
-    
-    # real 버전
-    LWH = [ [[int(customer.lwh[0]), int(customer.lwh[1]), int(customer.lwh[2])] for customer in customer_first],\
-            [[int(customer.lwh[0]), int(customer.lwh[1]), int(customer.lwh[2])] for customer in customer_Business], \
-            [[int(customer.lwh[0]), int(customer.lwh[1]), int(customer.lwh[2])] for customer in customer_Economy] ]
-   
-    # Class 숫자
-    TOP_CLASS = 3
-    
-    # Econom를 split한 수
-    Economy_split_num = 1
-    # 승객 수
-    test = [len(customer_first), len(customer_Business), len(customer_Economy)]
-    
-    # weight, lwh setting for test, 추후에 수정
-    WEIGHT = [[customer.weight for customer in customer_first], \
-              [customer.weight for customer in customer_Business], \
-              [customer.weight for customer in customer_Economy]]
-        
-    # sort by weight
-    W_LWH = [[[WEIGHT[i][j], LWH[i][j]] for j in range(test[i])] for i in range(TOP_CLASS)]
-    W_LWH_temp = W_LWH
-    weight_sorted = []
+    TRUCK_L = 50    #x
+    TRUCK_W = 50   # y
+    TRUCK_H = 50   # z
     
     def rect_prism(x_range, y_range, z_range):
           yy, zz = np.meshgrid(y_range, z_range)
@@ -174,7 +133,33 @@ def draw_box_function(class_num=1, customer_list = None, ):
         return x <= TRUCK_L and y <= TRUCK_W and z <= TRUCK_H
     
     ########################################################################## stack Test
+    
+    # class에 따른 소비자 분류
+    customer_first = []
+    customer_Business = []
+    customer_Economy = []
+    
+    for customer in customer_list:
+        if customer.t_class == "First":
+            customer_first.append(customer)
+        elif customer.t_class == "Business":
+            customer_Business.append(customer)
+        else:
+            customer_Economy.append(customer)
+            
+        # test 버전
+    #LWH = [[[int(customer.lwh[0]), int(customer.lwh[1]), int(customer.lwh[2])] for customer in customer_list]]
+    
+    # real 버전
+    LWH = [ [[int(customer.lwh[0]), int(customer.lwh[1]), int(customer.lwh[2])] for customer in customer_Economy],\
+            [[int(customer.lwh[0]), int(customer.lwh[1]), int(customer.lwh[2])] for customer in customer_Business], \
+            [[int(customer.lwh[0]), int(customer.lwh[1]), int(customer.lwh[2])] for customer in customer_first] ]
+    
     # CLASS, BOX NUM
+    TOP_CLASS = 3
+    #Econom를 split한 수
+    Economy_split_num = 1
+    test = [len(customer_Economy), len(customer_Business), len(customer_first)]
     
     # 색깔 부여
     TOP_COLORS=[]
@@ -183,6 +168,15 @@ def draw_box_function(class_num=1, customer_list = None, ):
     TOP_COLORS.append('#00ff00') # Business 색깔
     TOP_COLORS.append('#0000ff') # First 색깔
     
+    # weight, lwh setting for test, 추후에 수정
+    WEIGHT = [[customer.weight for customer in customer_Economy], \
+              [customer.weight for customer in customer_Business], \
+              [customer.weight for customer in customer_first]]
+    
+    # sort by weight
+    W_LWH = [[[WEIGHT[i][j], LWH[i][j]] for j in range(test[i])] for i in range(TOP_CLASS)]
+    W_LWH_temp = W_LWH
+    weight_sorted = []
     
     
     # 무게가 무거운 순
@@ -201,9 +195,7 @@ def draw_box_function(class_num=1, customer_list = None, ):
     
     TEST_LIST = []
     total_iter_num = 0
-    
     for TEST in range(TOP_CLASS):
-        
         fig = plt.figure()
         ax = fig.add_subplot(projection='3d')
         ax.set_aspect('auto')
@@ -229,7 +221,11 @@ def draw_box_function(class_num=1, customer_list = None, ):
             total_num += BOX_NUM[i]
         
         BOX_tmp = [0 for i in range(total_num)]
-
+        ####
+        #WEIGHT = [ [j] for j in range(BOX_NUM[i], -1) for i in range(CLASS)]
+        # LWH = [[[random.randint(3, 7), random.randint(3, 7), random.randint(3, 7)] for j in range(BOX_NUM[i])] for i in range(CLASS)]
+        # LWH = [[[random.randint(3, 7), random.randint(3, 7), 5] for j in range(BOX_NUM[i])] for i in range(CLASS)]
+        #LWH = [[[3, 3, 3] for j in range(BOX_NUM[i])] for i in range(CLASS)]
         
         # 첫 번째 BOX 만들기
         BOX[0][0] = Box(S_POSITION, W_LWH[TEST][0][1], COLORS[TEST][0], W_LWH[TEST][0][0])
@@ -240,6 +236,11 @@ def draw_box_function(class_num=1, customer_list = None, ):
         iter_num = 0
         start = 0
         valid_box = 0
+        
+        start_num_tmp = 0
+        start_num_max = 0
+        
+        print(f"fixed LWH : {LWH}, {WEIGHT}")
         
         
         for i in range(CLASS):
@@ -253,7 +254,7 @@ def draw_box_function(class_num=1, customer_list = None, ):
                 # BOX 생성
                 test_truck = TRUCK_H*TRUCK_L*TRUCK_W
                 
-                for i_count in range(test_truck):
+                for i_count in range(start_num_tmp, test_truck):
                     for tmp in range(start):
         
                             grids1 = BOX_tmp[tmp].occupied_space()
@@ -274,7 +275,12 @@ def draw_box_function(class_num=1, customer_list = None, ):
                         valid_box = 0
                         break
                     
+                    if i_count > start_num_max:
+                        start_num_max=i_count
                     valid_box = 0
+                    
+                start_num_tmp=start_num_max
+                
         TEST_LIST.append(iter_num)
         plt.draw() 
     
