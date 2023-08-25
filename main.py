@@ -94,6 +94,7 @@ while True:
                 valid = 0
                 start = 0
                 end = 0
+                max_val = 0
                 print(code)
                 print("#", tmp_customer.lwh, tmp_customer.seat, tmp_customer.t_class)
                       
