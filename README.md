@@ -17,6 +17,9 @@
 - pyzbar == 0.1.9
 - pyserial == 3.5
 
+# overall image
+<img src="https://github.com/wonchan-lee/embedded-SW/blob/main/flow_chart.png"/>
+
 # How to use
 1. code를 복사합니다.
 ```console
