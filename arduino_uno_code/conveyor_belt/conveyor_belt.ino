@@ -24,7 +24,7 @@ void loop()
         analogWrite(MOTOR_A2, 0);
         Serial.print("stop - ");
         Serial.println(0);
-        delay(15000);
+        delay(14000);
   }
   else{    
         analogWrite(MOTOR_A1, 0);

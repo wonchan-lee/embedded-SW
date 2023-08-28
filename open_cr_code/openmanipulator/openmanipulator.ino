@@ -85,6 +85,33 @@ void setup() {
   //}
 }
 
+void loop() {
+  // put your main code here, to run repeatedly:
+  // if (Serial.available() > 0) {
+  char input = 'K';
+
+  if(Serial.available() > 0) { //시리얼에 값이 있으면
+    Serial.println("input:");
+    input = Serial.read(); //시리얼 값을 읽어라
+    Serial.println(input);
+  }
+
+  if(input=='E'){
+    economy3();
+    delay(100);
+  }
+  else if(input=='B'){    
+    business();
+    delay(100);
+  }
+  else if(input=='F'){
+    first();
+    delay(100);
+  }
+  delay(100);
+
+}
+
 void economy1() {
 
   uint8_t dxl_id1 = DXL_ID1;
@@ -344,31 +371,4 @@ void first() {
   delay(5000);
 
   countf += 1;
-}
-
-void loop() {
-  // put your main code here, to run repeatedly:
-  // if (Serial.available() > 0) {
-  char input = 'K';
-
-  if(Serial.available() > 0) { //시리얼에 값이 있으면
-    Serial.println("input:");
-    input = Serial.read(); //시리얼 값을 읽어라
-    Serial.println(input);
-  }
-
-  if(input=='E'){
-    economy3()
-    delay(100)
-  }
-  else if(input=='B'){    
-    business()
-    delay(100)
-  }
-  else{
-    first()
-    delay(100)
-  }
-  delay(100);
-
 }
