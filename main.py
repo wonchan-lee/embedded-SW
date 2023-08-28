@@ -33,10 +33,16 @@ code_list = []
 customer_num = 5 # customer 숫자를 설정해서 이 숫자를 넘어가면, 프로그램 종료
 
 # conveyor_belt serial 객체
-# conveyor_belt = serial.Serial(
-#     port='COM9',
-#     baudrate=9600,
-# )
+conveyor_belt = serial.Serial(
+    port='COM7',
+    baudrate=9600,
+)
+
+openmanipulator = serial.Serial(
+    port='COM8',
+    baudrate=115200,
+)
+
 
 
 # Box 객체 설정
@@ -72,7 +78,7 @@ while True:
     time_tmp = int(end - start)
     
     # 바코드를 인식한 후 3초가 지나면
-    if time_tmp >= 1 and valid==1:
+    if time_tmp >= 2 and valid==1:
         # 바코드: "클래스 좌석 무게"
         try:
             barcode = code.split()
@@ -106,7 +112,14 @@ while True:
                 # print(lwh, code)
                 
                 # 컨베이어 벨트를 작동시켜 다음 박스를 움직이도록 하는 코드
-                # conveyor_belt.write('A'.encode())
+                conveyor_belt.write('A'.encode())
+                time.sleep(1)
+                if tmp_customer.t_class == 'First':
+                    openmanipulator.write('F'.encode())
+                elif tmp_customer.t_class == 'Business':
+                    openmanipulator.write('B'.encode())
+                else:
+                    openmanipulator.write('E'.encode())
                 
         except:
             valid = 0
