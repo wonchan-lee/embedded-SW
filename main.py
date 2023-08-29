@@ -31,7 +31,7 @@ customer_list = []
 code_list = []
 
 # 핵심 변수
-customer_num = 5 # customer 숫자를 설정해서 이 숫자를 넘어가면, 프로그램 종료
+customer_num = 3 # customer 숫자를 설정해서 이 숫자를 넘어가면, 프로그램 종료
 
 # conveyor_belt serial 객체
 port_conv = "COM9"
@@ -42,10 +42,10 @@ conveyor_belt = serial.Serial(
 
 # openmanupulator serial 객체
 port_op = "COM10"
-openmanipulator = serial.Serial(
-    port=port_op,
-    baudrate=115200,
-)
+# openmanipulator = serial.Serial(
+#     port=port_op,
+#     baudrate=115200,
+# )
 
 
 # Box 객체 설정
@@ -115,14 +115,14 @@ while True:
                 # print(lwh, code)
                 
                 # 컨베이어 벨트를 작동시켜 다음 박스를 움직이도록 하는 코드
-                conveyor_belt.write('A'.encode())
-                time.sleep(15)
-                if tmp_customer.t_class == 'First':
-                    openmanipulator.write('F'.encode())
-                elif tmp_customer.t_class == 'Business':
-                    openmanipulator.write('B'.encode())
-                else:
-                    openmanipulator.write('E'.encode())
+                # conveyor_belt.write('A'.encode())
+                # time.sleep(15)
+                # if tmp_customer.t_class == 'First':
+                #     openmanipulator.write('F'.encode())
+                # elif tmp_customer.t_class == 'Business':
+                #     openmanipulator.write('B'.encode())
+                # else:
+                #     openmanipulator.write('E'.encode())
                 
         except:
             valid = 0
@@ -141,8 +141,8 @@ while True:
         draw_box_function(3, customer_list)
         
         # for stack box, 박스 올려 놓으면 적재하는 코드
-        a = input("Enter something to stack box after sorting by weight")
-        stack_box(customer_list, port_conv, port_op)
+        a = input("Enter something to stack box after sorting by weight: ")
+        stack_box(cap, len(customer_list), port_conv, port_op)
         break
     
 cv2.destroyAllWindows()

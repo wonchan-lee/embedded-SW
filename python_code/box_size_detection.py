@@ -5,7 +5,7 @@ import pyzbar.pyzbar as pyzbar
 
 # while문 안에 작성하고, 바깥에 break할 키를 설정해준다.
 # + cv2.destroyAllWindows()
-def get_box_size_and_barcode(cap, lwh, real_wb=(1, 1), valid=0, max_val = 0, B=(1, 1, 1, 1), real_w_b=2.8, cam_height=32.3):
+def get_box_size_and_barcode(cap, lwh, real_wb=(1, 1), valid=0, max_val = 0, B=(1, 1, 1, 1), real_w_b=4.8, cam_height=20.5):
     
     # local variable 처리
     x_b = B[0]
@@ -76,17 +76,17 @@ def get_box_size_and_barcode(cap, lwh, real_wb=(1, 1), valid=0, max_val = 0, B=(
     if max_val < round(((w_b/real_w_b)/cam_height)*6.7, 2):
         max_val = round(((w_b/real_w_b)/cam_height)*6.7, 2)
         last_real_w_b = real_w_b
-        real_w = round((w/w_b)*(last_real_w_b), 2)
-        real_h = round((h/w_b)*(last_real_w_b), 2)
+        real_w = round((w/w_b)*(last_real_w_b)/1.25, 2)
+        real_h = round((h/w_b)*(last_real_w_b)/1.25, 2)
         
         
     try:
-        real_w = round((w/w_b)*(last_real_w_b), 2)
-        real_h = round((h/w_b)*(last_real_w_b), 2)
+        real_w = round((w/w_b)*(last_real_w_b)/1.25, 2) 
+        real_h = round((h/w_b)*(last_real_w_b)/1.25, 2) 
     except:
         pass
         
-    height = max_val
+    height = round(max_val/10, 2)
             
     
     if real_w < 1 or real_h < 1:
