@@ -108,6 +108,14 @@ void loop() {
     first();
     delay(100);
   }
+  else if(input=='G'){
+    economy2();
+    delay(100);
+  }
+  else if(input=='H'){
+    economy1();
+    delay(100);
+  }  
   delay(100);
 
 }

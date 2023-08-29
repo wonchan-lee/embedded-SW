@@ -12,6 +12,7 @@ sys.path.append('./python_code')
 
 from box_size_detection import get_box_size_and_barcode, plot_trackbar
 from struck_code_each_weight_color_added import draw_box_function 
+from op_cb_stack_box import stack_box
 
 
 # 카메라 세팅
@@ -33,14 +34,16 @@ code_list = []
 customer_num = 5 # customer 숫자를 설정해서 이 숫자를 넘어가면, 프로그램 종료
 
 # conveyor_belt serial 객체
+port_conv = "COM9"
 conveyor_belt = serial.Serial(
-    port="COM9",
+    port=port_conv,
     baudrate=9600,
 )
 
 # openmanupulator serial 객체
+port_op = "COM10"
 openmanipulator = serial.Serial(
-    port='COM10',
+    port=port_op,
     baudrate=115200,
 )
 
@@ -137,6 +140,9 @@ while True:
         # box를 그리는 로직 실행
         draw_box_function(3, customer_list)
         
+        # for stack box, 박스 올려 놓으면 적재하는 코드
+        a = input("Enter something to stack box after sorting by weight")
+        stack_box(customer_list, port_conv, port_op)
         break
     
 cv2.destroyAllWindows()
