@@ -286,7 +286,7 @@ def draw_box_function(class_num=1, customer_list = None, ):
                 start_num_tmp=start_num_max
                 
         TEST_LIST.append(iter_num)
-        plt.draw() 
+        plt.savefig(f'stack_{TEST}.png') 
     
     print(f"iter_nums:{TEST_LIST}, totla_iter_num: {total_iter_num}\n")
     print(f"origin weight:{WEIGHT[0]} \n\nsorted weight:{weight_sorted}")

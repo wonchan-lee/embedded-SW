@@ -132,9 +132,14 @@ void economy1() {
   dxl_wb.goalPosition(dxl_id3, (int32_t)1520);
   delay(1000);
   dxl_wb.goalPosition(dxl_id4, (int32_t)2700);  // delay(1000);
-  dxl_wb.goalPosition(dxl_id2, (int32_t)2720);  // delay(1000);
+  dxl_wb.goalPosition(dxl_id2, (int32_t)2690);  // 2720
   delay(2000);
 
+  // if ( "3cm이면" ) {
+  //   dxl_wb.goalPosition(dxl_id5, (int32_t)2300); // 3cm
+  // } else {
+  //   dxl_wb.goalPosition(dxl_id5, (int32_t)2020); // 4cm
+  // }
   dxl_wb.goalPosition(dxl_id5, (int32_t)2300);  // 1820 5cm 2020 4cm 2300 3cm
   delay(2000);
 
@@ -145,14 +150,14 @@ void economy1() {
   delay(2000);
 
   // rotate
-  dxl_wb.goalPosition(dxl_id1, (int32_t)(3072 + counte1 * 100));
+  dxl_wb.goalPosition(dxl_id1, (int32_t)(3072 + counte1 * 120));
   delay(2000);
 
   // put
   dxl_wb.goalPosition(dxl_id3, (int32_t)1365);
   delay(1000);
   dxl_wb.goalPosition(dxl_id4, (int32_t)2660);  // delay(1000);
-  dxl_wb.goalPosition(dxl_id2, (int32_t)2830);  // delay(1000);
+  dxl_wb.goalPosition(dxl_id2, (int32_t)2870);  // 2830
   delay(2000);
 
   dxl_wb.goalPosition(dxl_id5, (int32_t)1023);
@@ -167,7 +172,7 @@ void economy1() {
   dxl_wb.goalPosition(dxl_id3, (int32_t)2048);  // 13
   dxl_wb.goalPosition(dxl_id4, (int32_t)2400);  // 14
   dxl_wb.goalPosition(dxl_id5, (int32_t)1023);  // 15
-  delay(5000);
+  delay(3000);
 
   counte1 += 1;
 }
@@ -185,7 +190,7 @@ void economy2() {
   dxl_wb.goalPosition(dxl_id3, (int32_t)1520);
   delay(1000);
   dxl_wb.goalPosition(dxl_id4, (int32_t)2700);  // delay(1000);
-  dxl_wb.goalPosition(dxl_id2, (int32_t)2720);  // delay(1000);
+  dxl_wb.goalPosition(dxl_id2, (int32_t)2690);  // 2720
   delay(2000);
 
   dxl_wb.goalPosition(dxl_id5, (int32_t)2300);  // 1820 5cm 2020 4cm 2300 3cm
@@ -198,14 +203,14 @@ void economy2() {
   delay(2000);
 
   // rotate
-  dxl_wb.goalPosition(dxl_id1, (int32_t)(3582 + counte1 * 100));
+  dxl_wb.goalPosition(dxl_id1, (int32_t)(3560 + counte2 * 120));
   delay(2000);
 
   // put
   dxl_wb.goalPosition(dxl_id3, (int32_t)1365);
   delay(1000);
   dxl_wb.goalPosition(dxl_id4, (int32_t)2660);  // delay(1000);
-  dxl_wb.goalPosition(dxl_id2, (int32_t)2830);  // delay(1000);
+  dxl_wb.goalPosition(dxl_id2, (int32_t)2870);  // 2830
   delay(2000);
 
   dxl_wb.goalPosition(dxl_id5, (int32_t)1023);
@@ -220,7 +225,7 @@ void economy2() {
   dxl_wb.goalPosition(dxl_id3, (int32_t)2048);  // 13
   dxl_wb.goalPosition(dxl_id4, (int32_t)2400);  // 14
   dxl_wb.goalPosition(dxl_id5, (int32_t)1023);  // 15
-  delay(5000);
+  delay(3000);
 
   counte2 += 1;
 }
@@ -237,7 +242,7 @@ void economy3() {
   dxl_wb.goalPosition(dxl_id3, (int32_t)1520);
   delay(1000);
   dxl_wb.goalPosition(dxl_id4, (int32_t)2700);  // delay(1000);
-  dxl_wb.goalPosition(dxl_id2, (int32_t)2720);  // delay(1000);
+  dxl_wb.goalPosition(dxl_id2, (int32_t)2690);  // 2720
   delay(2000);
 
   dxl_wb.goalPosition(dxl_id5, (int32_t)2300);  // 1820 5cm 2020 4cm 2300 3cm
@@ -250,14 +255,14 @@ void economy3() {
   delay(2000);
 
   // rotate
-  dxl_wb.goalPosition(dxl_id1, (int32_t)(4000 + counte1 * 100));
+  dxl_wb.goalPosition(dxl_id1, (int32_t)(3980 + counte3 * 120));
   delay(2000);
 
   // put
   dxl_wb.goalPosition(dxl_id3, (int32_t)1365);
   delay(1000);
   dxl_wb.goalPosition(dxl_id4, (int32_t)2660);  // delay(1000);
-  dxl_wb.goalPosition(dxl_id2, (int32_t)2830);  // delay(1000);
+  dxl_wb.goalPosition(dxl_id2, (int32_t)2870);  // 2830
   delay(2000);
 
   dxl_wb.goalPosition(dxl_id5, (int32_t)1023);
@@ -272,7 +277,7 @@ void economy3() {
   dxl_wb.goalPosition(dxl_id3, (int32_t)2048);  // 13
   dxl_wb.goalPosition(dxl_id4, (int32_t)2400);  // 14
   dxl_wb.goalPosition(dxl_id5, (int32_t)1023);  // 15
-  delay(5000);
+  delay(3000);
 
   counte3 += 1;
 }
@@ -289,7 +294,7 @@ void business() {
   dxl_wb.goalPosition(dxl_id3, (int32_t)1520);
   delay(1000);
   dxl_wb.goalPosition(dxl_id4, (int32_t)2700);  // delay(1000);
-  dxl_wb.goalPosition(dxl_id2, (int32_t)2720);  // delay(1000);
+  dxl_wb.goalPosition(dxl_id2, (int32_t)2690);  // 2720
   delay(2000);
 
   dxl_wb.goalPosition(dxl_id5, (int32_t)2300);  // 1820 5cm 2020 4cm 2300 3cm
@@ -302,14 +307,14 @@ void business() {
   delay(2000);
 
   // rotate
-  dxl_wb.goalPosition(dxl_id1, (int32_t)(1036 + counte1 * 100));
+  dxl_wb.goalPosition(dxl_id1, (int32_t)(500 + countb * 120));
   delay(2000);
 
   // put
   dxl_wb.goalPosition(dxl_id3, (int32_t)1365);
   delay(1000);
   dxl_wb.goalPosition(dxl_id4, (int32_t)2660);  // delay(1000);
-  dxl_wb.goalPosition(dxl_id2, (int32_t)2830);  // delay(1000);
+  dxl_wb.goalPosition(dxl_id2, (int32_t)2870);  // 2830
   delay(2000);
 
   dxl_wb.goalPosition(dxl_id5, (int32_t)1023);
@@ -324,7 +329,7 @@ void business() {
   dxl_wb.goalPosition(dxl_id3, (int32_t)2048);  // 13
   dxl_wb.goalPosition(dxl_id4, (int32_t)2400);  // 14
   dxl_wb.goalPosition(dxl_id5, (int32_t)1023);  // 15
-  delay(5000);
+  delay(3000);
 
   countb += 1;
 }
@@ -341,7 +346,7 @@ void first() {
   dxl_wb.goalPosition(dxl_id3, (int32_t)1520);
   delay(1000);
   dxl_wb.goalPosition(dxl_id4, (int32_t)2700);  // delay(1000);
-  dxl_wb.goalPosition(dxl_id2, (int32_t)2720);  // delay(1000);
+  dxl_wb.goalPosition(dxl_id2, (int32_t)2690);  // 2720
   delay(2000);
 
   dxl_wb.goalPosition(dxl_id5, (int32_t)2300);  // 1820 5cm 2020 4cm 2300 3cm
@@ -354,14 +359,14 @@ void first() {
   delay(2000);
 
   // rotate
-  dxl_wb.goalPosition(dxl_id1, (int32_t)(1024 + counte1 * 100));
+  dxl_wb.goalPosition(dxl_id1, (int32_t)(1024 + countf * 120));
   delay(2000);
 
   // put
   dxl_wb.goalPosition(dxl_id3, (int32_t)1365);
   delay(1000);
   dxl_wb.goalPosition(dxl_id4, (int32_t)2660);  // delay(1000);
-  dxl_wb.goalPosition(dxl_id2, (int32_t)2830);  // delay(1000);
+  dxl_wb.goalPosition(dxl_id2, (int32_t)2870);  // 2830
   delay(2000);
 
   dxl_wb.goalPosition(dxl_id5, (int32_t)1023);
@@ -376,7 +381,7 @@ void first() {
   dxl_wb.goalPosition(dxl_id3, (int32_t)2048);  // 13
   dxl_wb.goalPosition(dxl_id4, (int32_t)2400);  // 14
   dxl_wb.goalPosition(dxl_id5, (int32_t)1023);  // 15
-  delay(5000);
+  delay(3000);
 
   countf += 1;
 }
