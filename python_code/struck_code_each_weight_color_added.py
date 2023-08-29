@@ -141,6 +141,12 @@ def draw_box_function(class_num=1, customer_list = None, ):
     customer_first = []
     customer_Business = []
     customer_Economy = []
+    economy_1_list = []
+    economy_2_list = []
+    economy_3_list = []
+    class1 = ['A', 'B', 'C', 'D', 'E']
+    class2 = ['F', 'G', 'H', 'I', 'J']
+    
     
     for customer in customer_list:
         if customer.t_class == "First":
@@ -148,21 +154,30 @@ def draw_box_function(class_num=1, customer_list = None, ):
         elif customer.t_class == "Business":
             customer_Business.append(customer)
         else:
-            customer_Economy.append(customer)
-            
+            if customer.seat[0] in class1:
+                economy_1_list.append(customer)
+            elif customer.seat[0] in class2:
+                economy_2_list.append(customer)
+            else:
+                economy_3_list.append(customer)
+
         # test 버전
     #LWH = [[[int(customer.lwh[0]), int(customer.lwh[1]), int(customer.lwh[2])] for customer in customer_list]]
     
     # real 버전
     LWH = [ [[int(customer.lwh[0]), int(customer.lwh[1]), int(customer.lwh[2])] for customer in customer_first],\
             [[int(customer.lwh[0]), int(customer.lwh[1]), int(customer.lwh[2])] for customer in customer_Business], \
-            [[int(customer.lwh[0]), int(customer.lwh[1]), int(customer.lwh[2])] for customer in customer_Economy] ]
+            [[int(customer.lwh[0]), int(customer.lwh[1]), int(customer.lwh[2])] for customer in customer_Economy],\
+            [[int(customer.lwh[0]), int(customer.lwh[1]), int(customer.lwh[2])] for customer in economy_1_list],\
+            [[int(customer.lwh[0]), int(customer.lwh[1]), int(customer.lwh[2])] for customer in economy_2_list],\
+            [[int(customer.lwh[0]), int(customer.lwh[1]), int(customer.lwh[2])] for customer in economy_3_list]]
     
     # CLASS, BOX NUM
-    TOP_CLASS = 3
+    TOP_CLASS = 5
     #Econom를 split한 수
-    Economy_split_num = 1
-    test = [len(customer_first), len(customer_Business), len(customer_Economy)]
+    Economy_split_num = 3
+        
+    test = [len(economy_1_list), len(economy_2_list), len(economy_3_list), len(customer_Business), len(customer_first)]
     
     # 색깔 부여
     TOP_COLORS=[]
@@ -172,9 +187,11 @@ def draw_box_function(class_num=1, customer_list = None, ):
     TOP_COLORS.append('#0000ff') # First 색깔
     
     # weight, lwh setting for test, 추후에 수정
-    WEIGHT = [[customer.weight for customer in customer_first], \
-              [customer.weight for customer in customer_Business], \
-              [customer.weight for customer in customer_Economy]]
+    WEIGHT = [  [customer.weight for customer in economy_1_list],\
+                [customer.weight for customer in economy_2_list],\
+                [customer.weight for customer in economy_3_list],\
+                [customer.weight for customer in customer_Business], \
+                [customer.weight for customer in customer_first]]
     
     # sort by weight
     W_LWH = [[[WEIGHT[i][j], LWH[i][j]] for j in range(test[i])] for i in range(TOP_CLASS)]

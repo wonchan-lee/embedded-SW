@@ -138,7 +138,7 @@ while True:
         print(customer_list)
         
         # box를 그리는 로직 실행
-        draw_box_function(3, customer_list)
+        draw_box_function(5, customer_list)
         break
     
 cv2.destroyAllWindows()
