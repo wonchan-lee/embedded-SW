@@ -143,9 +143,11 @@ void economy1() {
   dxl_wb.goalPosition(dxl_id5, (int32_t)2300);  // 1820 5cm 2020 4cm 2300 3cm
   delay(2000);
 
-  dxl_wb.goalPosition(dxl_id2, (int32_t)2048);
-  delay(1000);                                  // 12
-  dxl_wb.goalPosition(dxl_id3, (int32_t)2048);  // 13
+  
+  dxl_wb.goalPosition(dxl_id2, (int32_t)2048);  // 12
+  delay(1000);
+  dxl_wb.goalPosition(dxl_id3, (int32_t)1900);  // 13 2048
+  delay(1000);                                  
   dxl_wb.goalPosition(dxl_id4, (int32_t)2400);  // 14
   delay(2000);
 
@@ -165,10 +167,10 @@ void economy1() {
 
   // first position
 
-  dxl_wb.goalPosition(dxl_id2, (int32_t)2048);
-  delay(1000);                                  // 12
+  dxl_wb.goalPosition(dxl_id2, (int32_t)2048);  
+  dxl_wb.goalPosition(dxl_id3, (int32_t)1900);  // 13
+  delay(3000);                                  // 12
   dxl_wb.goalPosition(dxl_id1, (int32_t)2048);  // 11
-  dxl_wb.goalPosition(dxl_id2, (int32_t)2048);  // 12
   dxl_wb.goalPosition(dxl_id3, (int32_t)2048);  // 13
   dxl_wb.goalPosition(dxl_id4, (int32_t)2400);  // 14
   dxl_wb.goalPosition(dxl_id5, (int32_t)1023);  // 15
@@ -196,9 +198,10 @@ void economy2() {
   dxl_wb.goalPosition(dxl_id5, (int32_t)2300);  // 1820 5cm 2020 4cm 2300 3cm
   delay(2000);
 
-  dxl_wb.goalPosition(dxl_id2, (int32_t)2048);
-  delay(1000);                                  // 12
-  dxl_wb.goalPosition(dxl_id3, (int32_t)2048);  // 13
+  dxl_wb.goalPosition(dxl_id2, (int32_t)2048);  // 12
+  delay(1000);
+  dxl_wb.goalPosition(dxl_id3, (int32_t)1900);  // 13 2048
+  delay(1000);                                  
   dxl_wb.goalPosition(dxl_id4, (int32_t)2400);  // 14
   delay(2000);
 
@@ -218,10 +221,10 @@ void economy2() {
 
   // first position
 
-  dxl_wb.goalPosition(dxl_id2, (int32_t)2048);
-  delay(1000);                                  // 12
+  dxl_wb.goalPosition(dxl_id2, (int32_t)2048);  
+  dxl_wb.goalPosition(dxl_id3, (int32_t)1900);  // 13
+  delay(3000);                                  // 12
   dxl_wb.goalPosition(dxl_id1, (int32_t)2048);  // 11
-  dxl_wb.goalPosition(dxl_id2, (int32_t)2048);  // 12
   dxl_wb.goalPosition(dxl_id3, (int32_t)2048);  // 13
   dxl_wb.goalPosition(dxl_id4, (int32_t)2400);  // 14
   dxl_wb.goalPosition(dxl_id5, (int32_t)1023);  // 15
@@ -248,9 +251,10 @@ void economy3() {
   dxl_wb.goalPosition(dxl_id5, (int32_t)2300);  // 1820 5cm 2020 4cm 2300 3cm
   delay(2000);
 
-  dxl_wb.goalPosition(dxl_id2, (int32_t)2048);
-  delay(1000);                                  // 12
-  dxl_wb.goalPosition(dxl_id3, (int32_t)2048);  // 13
+  dxl_wb.goalPosition(dxl_id2, (int32_t)2048);  // 12
+  delay(1000);
+  dxl_wb.goalPosition(dxl_id3, (int32_t)1900);  // 13 2048
+  delay(1000);                                  
   dxl_wb.goalPosition(dxl_id4, (int32_t)2400);  // 14
   delay(2000);
 
@@ -270,10 +274,10 @@ void economy3() {
 
   // first position
 
-  dxl_wb.goalPosition(dxl_id2, (int32_t)2048);
-  delay(1000);                                  // 12
+  dxl_wb.goalPosition(dxl_id2, (int32_t)2048);  
+  dxl_wb.goalPosition(dxl_id3, (int32_t)1900);  // 13
+  delay(3000);                                  // 12
   dxl_wb.goalPosition(dxl_id1, (int32_t)2048);  // 11
-  dxl_wb.goalPosition(dxl_id2, (int32_t)2048);  // 12
   dxl_wb.goalPosition(dxl_id3, (int32_t)2048);  // 13
   dxl_wb.goalPosition(dxl_id4, (int32_t)2400);  // 14
   dxl_wb.goalPosition(dxl_id5, (int32_t)1023);  // 15
@@ -300,9 +304,10 @@ void business() {
   dxl_wb.goalPosition(dxl_id5, (int32_t)2300);  // 1820 5cm 2020 4cm 2300 3cm
   delay(2000);
 
-  dxl_wb.goalPosition(dxl_id2, (int32_t)2048);
-  delay(1000);                                  // 12
-  dxl_wb.goalPosition(dxl_id3, (int32_t)2048);  // 13
+  dxl_wb.goalPosition(dxl_id2, (int32_t)2048);  // 12
+  delay(1000);
+  dxl_wb.goalPosition(dxl_id3, (int32_t)1900);  // 13 2048
+  delay(1000);                                  
   dxl_wb.goalPosition(dxl_id4, (int32_t)2400);  // 14
   delay(2000);
 
@@ -322,10 +327,10 @@ void business() {
 
   // first position
 
-  dxl_wb.goalPosition(dxl_id2, (int32_t)2048);
-  delay(1000);                                  // 12
+  dxl_wb.goalPosition(dxl_id2, (int32_t)2048);  
+  dxl_wb.goalPosition(dxl_id3, (int32_t)1900);  // 13
+  delay(3000);                                  // 12
   dxl_wb.goalPosition(dxl_id1, (int32_t)2048);  // 11
-  dxl_wb.goalPosition(dxl_id2, (int32_t)2048);  // 12
   dxl_wb.goalPosition(dxl_id3, (int32_t)2048);  // 13
   dxl_wb.goalPosition(dxl_id4, (int32_t)2400);  // 14
   dxl_wb.goalPosition(dxl_id5, (int32_t)1023);  // 15
@@ -352,9 +357,10 @@ void first() {
   dxl_wb.goalPosition(dxl_id5, (int32_t)2300);  // 1820 5cm 2020 4cm 2300 3cm
   delay(2000);
 
-  dxl_wb.goalPosition(dxl_id2, (int32_t)2048);
-  delay(1000);                                  // 12
-  dxl_wb.goalPosition(dxl_id3, (int32_t)2048);  // 13
+  dxl_wb.goalPosition(dxl_id2, (int32_t)2048);  // 12
+  delay(1000);
+  dxl_wb.goalPosition(dxl_id3, (int32_t)1900);  // 13 2048
+  delay(1000);                                  
   dxl_wb.goalPosition(dxl_id4, (int32_t)2400);  // 14
   delay(2000);
 
@@ -374,10 +380,10 @@ void first() {
 
   // first position
 
-  dxl_wb.goalPosition(dxl_id2, (int32_t)2048);
-  delay(1000);                                  // 12
-  dxl_wb.goalPosition(dxl_id1, (int32_t)2048);  // 11
   dxl_wb.goalPosition(dxl_id2, (int32_t)2048);  // 12
+  dxl_wb.goalPosition(dxl_id3, (int32_t)1900);  // 13
+  delay(3000);                                  // 12
+  dxl_wb.goalPosition(dxl_id1, (int32_t)2048);  // 11
   dxl_wb.goalPosition(dxl_id3, (int32_t)2048);  // 13
   dxl_wb.goalPosition(dxl_id4, (int32_t)2400);  // 14
   dxl_wb.goalPosition(dxl_id5, (int32_t)1023);  // 15
